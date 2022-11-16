@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=my_password
+    ports:
+      - 5432:5432
+  ml_app:
+    build: ./ml_codes
+    environment:
+      - DB_USER=docker
+      - DB_PASSWORD=my_password
+      - DB_HOST=db
+      - DB_PORT=5432
+    volumes:
+      - ./data_here:/project/data_here
+    ports:
+      - 8080:8080
+    links:
+      - db
