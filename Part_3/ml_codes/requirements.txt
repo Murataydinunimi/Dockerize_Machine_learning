@@ -1,0 +1,6 @@
+pandas
+numpy
+scikit-learn
+scipy
+sqlalchemy
+psycopg2-binary==2.8.6
